@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_left_image_content_left_image_contents",
+  "info": {
+    "displayName": "Left_Image_Content"
+  },
+  "options": {},
+  "attributes": {
+    "Desktop_Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Tab_Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Image_Icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Content": {
+      "type": "text"
+    }
+  }
+}

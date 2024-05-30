@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_battery_life_battery_lives",
+  "info": {
+    "displayName": "Battery_Life",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Hours": {
+      "type": "integer",
+      "default": 0,
+      "required": false
+    }
+  }
+}

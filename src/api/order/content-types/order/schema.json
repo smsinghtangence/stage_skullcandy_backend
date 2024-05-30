@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "payment_id": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "integer",
+      "required": false
+    },
+    "status": {
+      "type": "string"
+    },
+    "payment_method": {
+      "type": "string"
+    },
+    "payment_method_title": {
+      "type": "string"
+    },
+    "set_paid": {
+      "type": "string"
+    },
+    "billing": {
+      "displayName": "Billing",
+      "type": "component",
+      "repeatable": false,
+      "component": "billing.billing"
+    },
+    "shipping": {
+      "type": "component",
+      "repeatable": false,
+      "component": "billing.billing"
+    },
+    "line_items": {
+      "displayName": "line_items",
+      "type": "component",
+      "repeatable": true,
+      "component": "line-items.line-items"
+    },
+    "order_key": {
+      "type": "string"
+    },
+    "shipping_total": {
+      "type": "string"
+    },
+    "shipping_tax": {
+      "type": "string"
+    },
+    "cart_tax": {
+      "type": "string"
+    },
+    "total": {
+      "type": "string"
+    },
+    "total_tax": {
+      "type": "string"
+    },
+    "customer_id": {
+      "type": "integer"
+    },
+    "order_id": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_features_content_features_contents",
+  "info": {
+    "displayName": "Features_Content"
+  },
+  "options": {},
+  "attributes": {
+    "Icon_Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Icon_Title": {
+      "type": "string"
+    },
+    "Icon_Image_Vertical": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Feature_Title_Vertical": {
+      "type": "string"
+    },
+    "Feature_Desp_Vertical": {
+      "type": "text"
+    }
+  }
+}

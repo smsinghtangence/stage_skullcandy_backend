@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_collections_home_collections",
+  "info": {
+    "displayName": "HomeCollection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "CollectionImg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

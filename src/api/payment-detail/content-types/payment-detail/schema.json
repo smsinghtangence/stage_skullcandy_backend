@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payment_details",
+  "info": {
+    "singularName": "payment-detail",
+    "pluralName": "payment-details",
+    "displayName": "Payment_Detail",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customer_id": {
+      "type": "integer"
+    },
+    "order_id": {
+      "type": "integer"
+    },
+    "razorpay_order_id": {
+      "type": "string"
+    },
+    "razorpay_payment_id": {
+      "type": "string"
+    },
+    "razorpay_signature": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "order_status": {
+      "type": "string"
+    },
+    "created_on": {
+      "type": "datetime"
+    },
+    "updated_on": {
+      "type": "string"
+    }
+  }
+}

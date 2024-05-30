@@ -1,0 +1,20 @@
+{
+    "content-manager": {
+      "components": {
+        "list": {
+          "emptyAttributes": "No attributes to display",
+          "emptyEntries": "No entries to display",
+          "emptyFilters": "No filters found",
+          "emptySearch": "No matching entries found",
+          "emptyState": "No entries found",
+          "loading": "Loading...",
+          "refresh": "Refresh"
+        }
+      },
+      "collectionTypes": {
+        "blog": {
+          "newEntry": "Create New Blog Entry"
+        }
+      }
+    }
+  }

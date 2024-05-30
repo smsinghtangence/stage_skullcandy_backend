@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_billing_billings",
+  "info": {
+    "displayName": "Billing"
+  },
+  "options": {},
+  "attributes": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "address_1": {
+      "type": "text"
+    },
+    "address_2": {
+      "type": "text"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "postcode": {
+      "type": "biginteger"
+    },
+    "country": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "biginteger"
+    }
+  }
+}

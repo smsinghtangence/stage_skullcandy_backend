@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_video_section_video_sections",
+  "info": {
+    "displayName": "Video_Section"
+  },
+  "options": {},
+  "attributes": {
+    "Video_Desktop_Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Video_Tab_Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Video_YouTube_Id": {
+      "type": "string"
+    }
+  }
+}

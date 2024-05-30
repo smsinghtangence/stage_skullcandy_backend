@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_logo_background_content_logo_background_contents",
+  "info": {
+    "displayName": "Logo_Background_content",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Section_Bg_Color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "Skull_Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Quotes_Hash_Tag_Sign": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Quotes_Content": {
+      "type": "text"
+    },
+    "Section_Visibility": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_filter_collections_filter_collections",
+  "info": {
+    "displayName": "Filter_Collections"
+  },
+  "options": {},
+  "attributes": {
+    "Burton_x_Skullcandy": {
+      "type": "boolean"
+    }
+  }
+}

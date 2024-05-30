@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_product_list_category_product_list_categories",
+  "info": {
+    "displayName": "Product List Category"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Url": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

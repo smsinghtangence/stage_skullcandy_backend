@@ -1,0 +1,106 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Products",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "minLength": 10
+    },
+    "slug": {
+      "type": "uid",
+      "required": true,
+      "minLength": 3
+    },
+    "Product_Tag_Line_Heading": {
+      "type": "string"
+    },
+    "Feature_List": {
+      "displayName": "Feature List",
+      "type": "component",
+      "repeatable": true,
+      "component": "feature-list.feature-list"
+    },
+    "Variation_Sliders": {
+      "displayName": "Variation_Sliders",
+      "type": "component",
+      "repeatable": true,
+      "component": "variation-sliders.variation-sliders"
+    },
+    "product_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product-category.product-category",
+      "mappedBy": "products"
+    },
+    "WhatsHot": {
+      "type": "boolean"
+    },
+    "Product_Usp": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product-usp.product-usp"
+    },
+    "Product_Description": {
+      "type": "text"
+    },
+    "Product_description_Heading": {
+      "type": "string"
+    },
+    "Product_Accordion": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product-accordion.product-accordion"
+    },
+    "Product_Detail_Slider": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product-detail-slider.product-detail-slider"
+    },
+    "Product_Detail_Slider_2": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product-detail-slider-2.product-detail-slider-2"
+    },
+    "Product_Hover_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "stock_status": {
+      "type": "enumeration",
+      "enum": [
+        "instock",
+        "outstock"
+      ]
+    },
+    "Product_Video_Section": {
+      "type": "component",
+      "repeatable": false,
+      "component": "product-video-section.product-video-section"
+    },
+    "Filters": {
+      "displayName": "Filters",
+      "type": "component",
+      "repeatable": false,
+      "component": "filters.filters"
+    }
+  }
+}

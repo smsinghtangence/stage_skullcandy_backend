@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_product_detail_slider_2_product_detail_slider_2s",
+  "info": {
+    "displayName": "Product_Detail_Slider_2",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

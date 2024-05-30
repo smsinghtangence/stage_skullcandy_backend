@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_left_right_image_section_left_right_image_sections",
+  "info": {
+    "displayName": "Left_Right_Image_Section"
+  },
+  "options": {},
+  "attributes": {
+    "Left_Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Right_Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Left_Image_Tab": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Right_Image_Tab": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

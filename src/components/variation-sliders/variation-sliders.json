@@ -1,0 +1,106 @@
+{
+  "collectionName": "components_variation_sliders_variation_sliders",
+  "info": {
+    "displayName": "Variation_Sliders",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Desktop_Image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Mobile_Image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Variations_Price": {
+      "type": "string"
+    },
+    "Variant_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sales_price": {
+      "type": "string"
+    },
+    "Quantity": {
+      "type": "integer"
+    },
+    "Variations_Color_Name": {
+      "type": "enumeration",
+      "enum": [
+        "Black",
+        "BlackCharcoal",
+        "Black/Orange",
+        "BleachedBlue",
+        "Blue",
+        "Blue/Sunset",
+        "CherryRed",
+        "ChillGrey",
+        "CobaltBlue",
+        "CuriousBlue",
+        "DarkBlue/Green",
+        "DARKGRAY",
+        "DarkGray/Blue",
+        "DarkGrey/Blue",
+        "DeepRed",
+        "ElectricYellow",
+        "Elevatedolive",
+        "FadedPink",
+        "FadedPurple",
+        "FreshMint",
+        "Glacier",
+        "GoldenAgeRed",
+        "GoldenOrange",
+        "GrayMiami",
+        "GraySwirlBlack",
+        "Gray/Miami",
+        "Grey/Tan",
+        "HotLime",
+        "LightGrey/Blue",
+        "Matcha",
+        "MobWhite",
+        "NaughtyNature",
+        "Ooze",
+        "Orange/Black",
+        "P-STATIONWired",
+        "Pink",
+        "PureMint",
+        "Purple",
+        "RedBlack",
+        "RedBurgundy",
+        "RetroPurple",
+        "RoyalNavy",
+        "TrueBlack",
+        "Bone",
+        "White",
+        "WhiteBlack",
+        "WhiteGray",
+        "White/Crimson",
+        "XBOXGamingWired"
+      ]
+    },
+    "SKU": {
+      "type": "string",
+      "required": true,
+      "minLength": 4,
+      "unique": false
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "press_releasess",
+  "info": {
+    "singularName": "press-releases",
+    "pluralName": "press-releasess",
+    "displayName": "Press Releases",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Press_Release": {
+      "displayName": "Press Releases",
+      "type": "component",
+      "repeatable": true,
+      "component": "press-release.press-releases"
+    }
+  }
+}

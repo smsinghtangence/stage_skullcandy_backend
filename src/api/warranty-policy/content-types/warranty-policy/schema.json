@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "warranty_policies",
+  "info": {
+    "singularName": "warranty-policy",
+    "pluralName": "warranty-policies",
+    "displayName": " Warranty Policy",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "string",
+      "required": false
+    },
+    "Content": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

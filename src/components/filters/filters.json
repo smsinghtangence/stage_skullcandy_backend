@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_filters_filters",
+  "info": {
+    "displayName": "Filters",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Filter_color": {
+      "type": "component",
+      "repeatable": true,
+      "component": "filter-color.filter-color"
+    },
+    "Activity_Filter": {
+      "type": "component",
+      "repeatable": false,
+      "component": "activity.activity"
+    },
+    "Battery_Life": {
+      "type": "component",
+      "repeatable": false,
+      "component": "battery-life.battery-life"
+    },
+    "Feature": {
+      "type": "component",
+      "repeatable": false,
+      "component": "features.features"
+    },
+    "Filter_Collection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "filter-collections.filter-collections"
+    },
+    "ProductType": {
+      "displayName": "ProductType",
+      "type": "component",
+      "repeatable": false,
+      "component": "product-type.product-type"
+    }
+  }
+}

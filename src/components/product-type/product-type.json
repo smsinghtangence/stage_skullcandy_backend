@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_product_type_product_types",
+  "info": {
+    "displayName": "ProductType"
+  },
+  "options": {},
+  "attributes": {
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Headphones",
+        "Neckbands",
+        "TWS",
+        "Accessories"
+      ]
+    }
+  }
+}

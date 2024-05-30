@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_features_features",
+  "info": {
+    "displayName": "Features",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Adjustable_Sensory_Bass": {
+      "type": "boolean",
+      "default": false
+    },
+    "Active_Noise_Canceling": {
+      "type": "boolean",
+      "default": false
+    },
+    "Multipoint_Pairing": {
+      "type": "boolean",
+      "default": false
+    },
+    "Stay_Aware": {
+      "type": "boolean",
+      "default": false
+    },
+    "Personal_Sound": {
+      "type": "boolean",
+      "default": false
+    },
+    "Custom_Equalizer": {
+      "type": "boolean",
+      "default": false
+    },
+    "Mobile_Skullcandy_App_Compatible": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

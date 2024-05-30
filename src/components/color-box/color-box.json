@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_color_box_color_boxes",
+  "info": {
+    "displayName": "Color_Box",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Button_Name": {
+      "type": "string"
+    },
+    "Button_Link": {
+      "type": "string"
+    },
+    "Background_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Heading_Icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Heading": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "text"
+    }
+  }
+}

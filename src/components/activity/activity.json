@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_activity_activities",
+  "info": {
+    "displayName": "Activity",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "All_Day_Listening": {
+      "type": "boolean",
+      "default": false
+    },
+    "At_the_Gym": {
+      "type": "boolean",
+      "default": false
+    },
+    "Focus": {
+      "type": "boolean",
+      "default": false
+    },
+    "Travel": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

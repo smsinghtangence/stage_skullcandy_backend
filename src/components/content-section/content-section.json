@@ -1,0 +1,68 @@
+{
+  "collectionName": "components_content_section_content_sections",
+  "info": {
+    "displayName": "Content_Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Desktop_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Tab_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Content_Alignment": {
+      "type": "enumeration",
+      "enum": [
+        "Left Align",
+        "Right Align",
+        "Right Top Content",
+        "Left Top Content",
+        "Both"
+      ]
+    },
+    "Content_Heading": {
+      "type": "string"
+    },
+    "Color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "Content_Description": {
+      "type": "text"
+    },
+    "Add_Button": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No"
+      ]
+    },
+    "Button_Type": {
+      "type": "enumeration",
+      "enum": [
+        "Link",
+        "Popup",
+        "New Popup"
+      ]
+    },
+    "Button_Name": {
+      "type": "string"
+    },
+    "Button_Link": {
+      "type": "string"
+    }
+  }
+}

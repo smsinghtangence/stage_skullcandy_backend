@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_line_items_line_items",
+  "info": {
+    "displayName": "line_items",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "product_id": {
+      "type": "integer"
+    },
+    "quantity": {
+      "type": "integer"
+    }
+  }
+}

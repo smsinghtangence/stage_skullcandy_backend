@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_press_release_press_releases",
+  "info": {
+    "displayName": "Press Releases",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Pdf": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

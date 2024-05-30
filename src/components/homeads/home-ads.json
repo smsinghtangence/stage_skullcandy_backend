@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_homeads_home_ads",
+  "info": {
+    "displayName": "HomeAds",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "ButtonText": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "AdsImg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
