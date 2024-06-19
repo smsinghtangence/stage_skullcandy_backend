@@ -94,14 +94,27 @@ const path = require('path');
 //Postgres
 // strapi-api/config/database.js
 module.exports = ({ env }) => ({
+  // connection: {
+  //   client: 'mysql',
+  //   connection: {
+  //     host: env('DATABASE_HOST', 'localhost'),
+  //     port: env.int('DATABASE_PORT', 3306),
+  //     database: env('DATABASE_NAME', 'skullcandy_stagedb'),
+  //     user: env('DATABASE_USERNAME', 'skullcandy_stageusr'),
+  //     password: env('DATABASE_PASSWORD', '0oOpoW4zP2VT6'),
+  //     //schema: env('DATABASE_SCHEMA', 'public'), // Not required
+  //     // ssl: {
+  //     //   rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false),
+  //     // },
+  //   },
   connection: {
     client: 'mysql',
     connection: {
-      host: env('DATABASE_HOST', 'localhost'),
-      port: env.int('DATABASE_PORT', 3306),
-      database: env('DATABASE_NAME', 'skullcandy_stagedb'),
-      user: env('DATABASE_USERNAME', 'skullcandy_stageusr'),
-      password: env('DATABASE_PASSWORD', '0oOpoW4zP2VT6'),
+      host: 'localhost',//env('DATABASE_HOST', 'localhost'),
+      port: 3302,//env.int('DATABASE_PORT', 3306),
+      database: 'skullcandy_stagedb',//env('DATABASE_NAME', 'skullcandy_stagedb'),
+      user: 'root',//env('DATABASE_USERNAME', 'skullcandy_stageusr'),
+      password:"1234" //env('DATABASE_PASSWORD', '0oOpoW4zP2VT6'),
       //schema: env('DATABASE_SCHEMA', 'public'), // Not required
       // ssl: {
       //   rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false),

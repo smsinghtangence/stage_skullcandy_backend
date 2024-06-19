@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mobileotps",
+  "info": {
+    "singularName": "mobileotp",
+    "pluralName": "mobileotps",
+    "displayName": "mobileotp",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "mobile": {
+      "type": "biginteger"
+    },
+    "otp": {
+      "type": "biginteger",
+      "max": "06",
+      "min": "0",
+      "required": false
+    }
+  }
+}
