@@ -25,6 +25,15 @@
       "configurable": false,
       "required": true
     },
+    "mobile": {
+      "type": "string",
+      "required": false
+    },
+    "otp": {
+      "type": "string",
+      "configurable": false,
+      "required": false
+    },
     "provider": {
       "type": "string",
       "configurable": false

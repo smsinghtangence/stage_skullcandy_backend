@@ -5,6 +5,7 @@
 import ckeditor5 from "@_sh/strapi-plugin-ckeditor/strapi-admin";
 import strapiCloud from "@strapi/plugin-cloud/strapi-admin";
 import colorPicker from "@strapi/plugin-color-picker/strapi-admin";
+import email from "@strapi/plugin-email/strapi-admin";
 import i18N from "@strapi/plugin-i18n/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
 import duplicateButton from "strapi-plugin-duplicate-button/strapi-admin";
@@ -20,6 +21,7 @@ renderAdmin(document.getElementById("strapi"), {
     ckeditor5: ckeditor5,
     "strapi-cloud": strapiCloud,
     "color-picker": colorPicker,
+    email: email,
     i18n: i18N,
     "users-permissions": usersPermissions,
     "duplicate-button": duplicateButton,
