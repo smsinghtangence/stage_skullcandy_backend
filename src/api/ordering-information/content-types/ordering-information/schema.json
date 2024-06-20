@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "ordering_informations",
+  "info": {
+    "singularName": "ordering-information",
+    "pluralName": "ordering-informations",
+    "displayName": "Ordering Information"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

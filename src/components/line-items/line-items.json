@@ -11,6 +11,38 @@
     },
     "quantity": {
       "type": "integer"
+    },
+    "SKU": {
+      "type": "string"
+    },
+    "Variations_Price": {
+      "type": "integer"
+    },
+    "Variant_Image_url": {
+      "type": "string"
+    },
+    "Variant_Image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "Variations_Color_Name": {
+      "type": "string"
+    },
+    "Sales_price": {
+      "type": "integer"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }

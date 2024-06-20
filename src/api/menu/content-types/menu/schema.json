@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus",
+  "info": {
+    "singularName": "menu",
+    "pluralName": "menus",
+    "displayName": "Menu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Url": {
+      "type": "string"
+    },
+    "Sub_Menu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sub-menu.sub-menu"
+    },
+    "Right_Menu_Section": {
+      "type": "component",
+      "repeatable": true,
+      "component": "right-menu-section.right-menu-section",
+      "max": 2
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_help_categories",
+  "info": {
+    "singularName": "product-help-category",
+    "pluralName": "product-help-categories",
+    "displayName": "Product Help Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Help_Category": {
+      "type": "string"
+    },
+    "Status": {
+      "type": "boolean"
+    }
+  }
+}

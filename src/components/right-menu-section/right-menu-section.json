@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_right_menu_section_right_menu_sections",
+  "info": {
+    "displayName": "Right Menu Section"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Url": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

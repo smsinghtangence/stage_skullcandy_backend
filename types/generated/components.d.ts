@@ -37,6 +37,7 @@ export interface BillingBilling extends Schema.Component {
   collectionName: 'components_billing_billings';
   info: {
     displayName: 'Billing';
+    description: '';
   };
   attributes: {
     first_name: Attribute.String;
@@ -48,6 +49,7 @@ export interface BillingBilling extends Schema.Component {
     postcode: Attribute.BigInteger;
     country: Attribute.String;
     phone: Attribute.BigInteger;
+    Email: Attribute.String;
   };
 }
 
@@ -122,6 +124,23 @@ export interface ExtraTechSpecsExtraFeatures extends Schema.Component {
   info: {
     displayName: ' Extra_Tech_Specs';
     description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+  };
+}
+
+export interface FaqFaq extends Schema.Component {
+  collectionName: 'components_faq_faqs';
+  info: {
+    displayName: 'faq';
   };
   attributes: {
     Heading: Attribute.String;
@@ -279,6 +298,8 @@ export interface HomeadsHomeAds extends Schema.Component {
     ButtonText: Attribute.String;
     url: Attribute.String;
     AdsImg: Attribute.Media;
+    Text_Color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
 
@@ -318,6 +339,14 @@ export interface LineItemsLineItems extends Schema.Component {
   attributes: {
     product_id: Attribute.Integer;
     quantity: Attribute.Integer;
+    SKU: Attribute.String;
+    Variations_Price: Attribute.Integer;
+    Variant_Image_url: Attribute.String;
+    Variant_Image: Attribute.Media;
+    name: Attribute.String;
+    Variations_Color_Name: Attribute.String;
+    Sales_price: Attribute.Integer;
+    slug: Attribute.String;
   };
 }
 
@@ -335,6 +364,31 @@ export interface LogoBackgroundContentLogoBackgroundContent
     Quotes_Hash_Tag_Sign: Attribute.Media;
     Quotes_Content: Attribute.Text;
     Section_Visibility: Attribute.Boolean;
+  };
+}
+
+export interface MenuLeftSectionMenuLeftSection extends Schema.Component {
+  collectionName: 'components_menu_left_section_menu_left_sections';
+  info: {
+    displayName: 'Menu Left Section';
+  };
+  attributes: {};
+}
+
+export interface MenuMenu extends Schema.Component {
+  collectionName: 'components_menu_menus';
+  info: {
+    displayName: 'Menu';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Url: Attribute.String;
+    Sub_Menu: Attribute.Component<'sub-menu.sub-menu', true>;
+    Right_Menu_Section: Attribute.Component<
+      'right-menu-section.right-menu-section',
+      true
+    >;
   };
 }
 
@@ -465,6 +519,29 @@ export interface ProductVideoSectionProductVideoSection
   };
 }
 
+export interface RightMenuSectionRightMenuSection extends Schema.Component {
+  collectionName: 'components_right_menu_section_right_menu_sections';
+  info: {
+    displayName: 'Right Menu Section';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Url: Attribute.String;
+    Image: Attribute.Media;
+  };
+}
+
+export interface SubMenuSubMenu extends Schema.Component {
+  collectionName: 'components_sub_menu_sub_menus';
+  info: {
+    displayName: 'Sub Menu';
+  };
+  attributes: {
+    Submenu_Title: Attribute.String;
+    Submenu_Url: Attribute.String;
+  };
+}
+
 export interface VariationSlidersVariationSliders extends Schema.Component {
   collectionName: 'components_variation_sliders_variation_sliders';
   info: {
@@ -476,59 +553,59 @@ export interface VariationSlidersVariationSliders extends Schema.Component {
     Mobile_Image: Attribute.Media;
     Variations_Price: Attribute.String;
     Variant_Image: Attribute.Media;
-    sales_price: Attribute.String;
+    Sales_price: Attribute.String;
     Quantity: Attribute.Integer;
     Variations_Color_Name: Attribute.Enumeration<
       [
         'Black',
-        'BlackCharcoal',
+        'Black Charcoal',
         'Black/Orange',
-        'BleachedBlue',
+        'Bleached Blue',
         'Blue',
         'Blue/Sunset',
-        'CherryRed',
-        'ChillGrey',
-        'CobaltBlue',
-        'CuriousBlue',
-        'DarkBlue/Green',
-        'DARKGRAY',
-        'DarkGray/Blue',
-        'DarkGrey/Blue',
-        'DeepRed',
-        'ElectricYellow',
-        'Elevatedolive',
-        'FadedPink',
-        'FadedPurple',
-        'FreshMint',
+        'Cherry Red',
+        'Chill Grey',
+        'Cobalt Blue',
+        'Curious Blue',
+        'Dark Blue/Green',
+        'DARK GRAY',
+        'Dark Gray/Blue',
+        'Dark Grey/Blue',
+        'Deep Red',
+        'Electric Yellow',
+        'Elevated olive',
+        'Faded Pink',
+        'Faded Purple',
+        'Fresh Mint',
         'Glacier',
-        'GoldenAgeRed',
-        'GoldenOrange',
-        'GrayMiami',
-        'GraySwirlBlack',
+        'Golden Age Red',
+        'Golden Orange',
+        'Gray miami',
+        'Gray Swirl Black',
         'Gray/Miami',
         'Grey/Tan',
-        'HotLime',
-        'LightGrey/Blue',
+        'Hot Lime',
+        'Light Grey/Blue',
         'Matcha',
-        'MobWhite',
-        'NaughtyNature',
+        'Mob White',
+        'Naughty Nature',
         'Ooze',
         'Orange/Black',
-        'P-STATIONWired',
+        'P-STATION Wired',
         'Pink',
-        'PureMint',
+        'Pure Mint',
         'Purple',
-        'RedBlack',
-        'RedBurgundy',
-        'RetroPurple',
-        'RoyalNavy',
-        'TrueBlack',
+        'Red Black',
+        'Red Burgundy',
+        'Retro Purple',
+        'Royal Navy',
+        'True Black',
         'Bone',
         'White',
-        'WhiteBlack',
-        'WhiteGray',
+        'White Black',
+        'White Gray',
         'White/Crimson',
-        'XBOXGamingWired'
+        'XBOX Gaming Wired'
       ]
     >;
     SKU: Attribute.String &
@@ -563,6 +640,7 @@ declare module '@strapi/types' {
       'color-box.color-box': ColorBoxColorBox;
       'content-section.content-section': ContentSectionContentSection;
       'extra-tech-specs.extra-features': ExtraTechSpecsExtraFeatures;
+      'faq.faq': FaqFaq;
       'feature-list.feature-list': FeatureListFeatureList;
       'features-content.features-content': FeaturesContentFeaturesContent;
       'features.features': FeaturesFeatures;
@@ -574,6 +652,8 @@ declare module '@strapi/types' {
       'left-right-image-section.left-right-image-section': LeftRightImageSectionLeftRightImageSection;
       'line-items.line-items': LineItemsLineItems;
       'logo-background-content.logo-background-content': LogoBackgroundContentLogoBackgroundContent;
+      'menu-left-section.menu-left-section': MenuLeftSectionMenuLeftSection;
+      'menu.menu': MenuMenu;
       'press-release.press-releases': PressReleasePressReleases;
       'product-accordion.product-accordion': ProductAccordionProductAccordion;
       'product-detail-slider-2.product-detail-slider-2': ProductDetailSlider2ProductDetailSlider2;
@@ -583,6 +663,8 @@ declare module '@strapi/types' {
       'product-type.product-type': ProductTypeProductType;
       'product-usp.product-usp': ProductUspProductUsp;
       'product-video-section.product-video-section': ProductVideoSectionProductVideoSection;
+      'right-menu-section.right-menu-section': RightMenuSectionRightMenuSection;
+      'sub-menu.sub-menu': SubMenuSubMenu;
       'variation-sliders.variation-sliders': VariationSlidersVariationSliders;
       'video-section.video-section': VideoSectionVideoSection;
     }

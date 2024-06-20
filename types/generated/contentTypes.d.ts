@@ -771,6 +771,9 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.role'
     >;
     Address: Attribute.Component<'billing.billing', true>;
+    Cart: Attribute.Component<'line-items.line-items', true>;
+    Company_Name: Attribute.String;
+    GSTIN: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -823,6 +826,8 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
           preset: 'toolbar';
         }
       >;
+    Mobile_Top_Banner: Attribute.Media;
+    Our_Culture_Mobile_Banner: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -864,18 +869,112 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     image: Attribute.Media;
     blogDate: Attribute.Date;
     category: Attribute.Enumeration<['blog', 'blog1', 'blog2']>;
-    slug: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetMinMaxLength<{
-        minLength: 4;
-      }>;
+    Slug: Attribute.UID<'api::blog.blog', 'title'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCheckingTheStatusOfAWarrantyClaimCheckingTheStatusOfAWarrantyClaim
+  extends Schema.SingleType {
+  collectionName: 'checking_the_status_of_a_warranty_claims';
+  info: {
+    singularName: 'checking-the-status-of-a-warranty-claim';
+    pluralName: 'checking-the-status-of-a-warranty-claims';
+    displayName: 'Checking The Status Of A Warranty Claim';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::checking-the-status-of-a-warranty-claim.checking-the-status-of-a-warranty-claim',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::checking-the-status-of-a-warranty-claim.checking-the-status-of-a-warranty-claim',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiContactUsContactUs extends Schema.SingleType {
+  collectionName: 'contact_uses';
+  info: {
+    singularName: 'contact-us';
+    pluralName: 'contact-uses';
+    displayName: 'Contact Us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Heading: Attribute.Text;
+    Sub_Heading: Attribute.String;
+    Email: Attribute.Email;
+    Phone: Attribute.BigInteger;
+    Days: Attribute.String;
+    Time: Attribute.Time;
+    Time2: Attribute.Time;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFaqFaq extends Schema.SingleType {
+  collectionName: 'faqs';
+  info: {
+    singularName: 'faq';
+    pluralName: 'faqs';
+    displayName: 'Faq';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    faq: Attribute.Component<'faq.faq', true>;
+    Main_Heading: Attribute.String;
+    Heading: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -901,6 +1000,12 @@ export interface ApiHomeHome extends Schema.SingleType {
     HomeCollection: Attribute.Component<'collections.home-collection', true>;
     HomeAds: Attribute.Component<'homeads.home-ads', true>;
     Home_Video: Attribute.Media;
+    Annoucement_Heading: Attribute.String;
+    Annoucement_Url: Attribute.String;
+    Top_Banner_Color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    Sub_Heading_Color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -911,12 +1016,133 @@ export interface ApiHomeHome extends Schema.SingleType {
   };
 }
 
+export interface ApiHowToSubmitAWarrantyClaimHowToSubmitAWarrantyClaim
+  extends Schema.SingleType {
+  collectionName: 'how_to_submit_a_warranty_claims';
+  info: {
+    singularName: 'how-to-submit-a-warranty-claim';
+    pluralName: 'how-to-submit-a-warranty-claims';
+    displayName: 'How To Submit A Warranty Claim';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::how-to-submit-a-warranty-claim.how-to-submit-a-warranty-claim',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::how-to-submit-a-warranty-claim.how-to-submit-a-warranty-claim',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMenuMenu extends Schema.CollectionType {
+  collectionName: 'menus';
+  info: {
+    singularName: 'menu';
+    pluralName: 'menus';
+    displayName: 'Menu';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Url: Attribute.String;
+    Sub_Menu: Attribute.Component<'sub-menu.sub-menu', true>;
+    Right_Menu_Section: Attribute.Component<
+      'right-menu-section.right-menu-section',
+      true
+    > &
+      Attribute.SetMinMax<
+        {
+          max: 2;
+        },
+        number
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMusicWithAMissionMusicWithAMission
+  extends Schema.SingleType {
+  collectionName: 'music_with_a_missions';
+  info: {
+    singularName: 'music-with-a-mission';
+    pluralName: 'music-with-a-missions';
+    displayName: 'Music with a Mission';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Top_Banner: Attribute.Media;
+    Heading: Attribute.String;
+    Our_Partners_Banner: Attribute.Media;
+    Our_Partners_Upper_Image: Attribute.Media;
+    Our_Partners_text: Attribute.Text;
+    Left_Image: Attribute.Media;
+    Right_Content: Attribute.Text;
+    Pow_Banner: Attribute.Media;
+    Pow_Image: Attribute.Media;
+    Pow_Text: Attribute.Text;
+    Last_Section_Left_Image: Attribute.Media;
+    Last_Section_Right_Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::music-with-a-mission.music-with-a-mission',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::music-with-a-mission.music-with-a-mission',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOrderOrder extends Schema.CollectionType {
   collectionName: 'orders';
   info: {
     singularName: 'order';
     pluralName: 'orders';
-    displayName: 'order';
+    displayName: 'Order';
     description: '';
   };
   options: {
@@ -925,13 +1151,11 @@ export interface ApiOrderOrder extends Schema.CollectionType {
   attributes: {
     payment_id: Attribute.String;
     amount: Attribute.Integer;
-    status: Attribute.String;
     payment_method: Attribute.String;
     payment_method_title: Attribute.String;
     set_paid: Attribute.String;
     billing: Attribute.Component<'billing.billing'>;
     shipping: Attribute.Component<'billing.billing'>;
-    line_items: Attribute.Component<'line-items.line-items', true>;
     order_key: Attribute.String;
     shipping_total: Attribute.String;
     shipping_tax: Attribute.String;
@@ -940,6 +1164,19 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     total_tax: Attribute.String;
     customer_id: Attribute.Integer;
     order_id: Attribute.String;
+    status: Attribute.Enumeration<
+      [
+        'Pending Payment',
+        'Processing',
+        'On Hold',
+        'Completed',
+        'Cancelled',
+        'Refunded'
+      ]
+    > &
+      Attribute.DefaultTo<'Processing'>;
+    line_items: Attribute.Component<'line-items.line-items', true>;
+    phone: Attribute.BigInteger;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -957,38 +1194,37 @@ export interface ApiOrderOrder extends Schema.CollectionType {
   };
 }
 
-export interface ApiPaymentDetailPaymentDetail extends Schema.CollectionType {
-  collectionName: 'payment_details';
+export interface ApiOrderingInformationOrderingInformation
+  extends Schema.SingleType {
+  collectionName: 'ordering_informations';
   info: {
-    singularName: 'payment-detail';
-    pluralName: 'payment-details';
-    displayName: 'Payment_Detail';
-    description: '';
+    singularName: 'ordering-information';
+    pluralName: 'ordering-informations';
+    displayName: 'Ordering Information';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    customer_id: Attribute.Integer;
-    order_id: Attribute.Integer;
-    razorpay_order_id: Attribute.String;
-    razorpay_payment_id: Attribute.String;
-    razorpay_signature: Attribute.String;
-    receipt_id: Attribute.String;
-    order_status: Attribute.String;
-    created_on: Attribute.DateTime;
-    updated_on: Attribute.String;
+    Heading: Attribute.String;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::payment-detail.payment-detail',
+      'api::ordering-information.ordering-information',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::payment-detail.payment-detail',
+      'api::ordering-information.ordering-information',
       'oneToOne',
       'admin::user'
     > &
@@ -1074,10 +1310,10 @@ export interface ApiProductProduct extends Schema.CollectionType {
     title: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
-        minLength: 10;
+        minLength: 5;
         maxLength: 100;
       }>;
-    slug: Attribute.UID &
+    slug: Attribute.UID<'api::product.product', 'title'> &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         minLength: 3;
@@ -1110,9 +1346,9 @@ export interface ApiProductProduct extends Schema.CollectionType {
       true
     >;
     Product_Hover_Image: Attribute.Media;
-    stock_status: Attribute.Enumeration<['instock', 'outstock']>;
     Product_Video_Section: Attribute.Component<'product-video-section.product-video-section'>;
     Filters: Attribute.Component<'filters.filters'>;
+    Product_Tag: Attribute.Enumeration<['NEW', 'BEST SELLER', 'ON SALE']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1177,6 +1413,195 @@ export interface ApiProductCategoryProductCategory
   };
 }
 
+export interface ApiProductHelpProductHelp extends Schema.CollectionType {
+  collectionName: 'product_helps';
+  info: {
+    singularName: 'product-help';
+    pluralName: 'product-helps';
+    displayName: 'Product Help';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    Slug: Attribute.UID<'api::product-help.product-help', 'Heading'>;
+    product_help_category: Attribute.Relation<
+      'api::product-help.product-help',
+      'oneToOne',
+      'api::product-help-category.product-help-category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-help.product-help',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-help.product-help',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductHelpCategoryProductHelpCategory
+  extends Schema.CollectionType {
+  collectionName: 'product_help_categories';
+  info: {
+    singularName: 'product-help-category';
+    pluralName: 'product-help-categories';
+    displayName: 'Product Help Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Help_Category: Attribute.String;
+    Status: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-help-category.product-help-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-help-category.product-help-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRefundsReturnRefundsReturn extends Schema.SingleType {
+  collectionName: 'refunds_returns';
+  info: {
+    singularName: 'refunds-return';
+    pluralName: 'refunds-returns';
+    displayName: 'Refunds Return';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::refunds-return.refunds-return',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::refunds-return.refunds-return',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSaftySafty extends Schema.SingleType {
+  collectionName: 'safties';
+  info: {
+    singularName: 'safty';
+    pluralName: 'safties';
+    displayName: 'Safty';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::safty.safty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::safty.safty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSubmitAClaimSubmitAClaim extends Schema.CollectionType {
+  collectionName: 'submit_a_claims';
+  info: {
+    singularName: 'submit-a-claim';
+    pluralName: 'submit-a-claims';
+    displayName: 'Submit a Claim';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Product_Name: Attribute.String;
+    Purchase_Date: Attribute.Date;
+    Seller_Name: Attribute.String;
+    Bill_Number: Attribute.String;
+    Describe_Your_Product_Issues: Attribute.Text;
+    Your_Name: Attribute.String;
+    Email_Address: Attribute.String;
+    Phone_Number: Attribute.String;
+    State: Attribute.String;
+    Address: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::submit-a-claim.submit-a-claim',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::submit-a-claim.submit-a-claim',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTermsOfUseTermsOfUse extends Schema.SingleType {
   collectionName: 'terms_of_uses';
   info: {
@@ -1208,6 +1633,42 @@ export interface ApiTermsOfUseTermsOfUse extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::terms-of-use.terms-of-use',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWarrantyWarranty extends Schema.SingleType {
+  collectionName: 'warranties';
+  info: {
+    singularName: 'warranty';
+    pluralName: 'warranties';
+    displayName: 'Warranty';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Main_Heading: Attribute.String;
+    Heading_Below_Text: Attribute.String;
+    Heading: Attribute.String;
+    Email: Attribute.Email;
+    Date_Time: Attribute.String;
+    Phone: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::warranty.warranty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::warranty.warranty',
       'oneToOne',
       'admin::user'
     > &
@@ -1273,14 +1734,26 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::blog.blog': ApiBlogBlog;
+      'api::checking-the-status-of-a-warranty-claim.checking-the-status-of-a-warranty-claim': ApiCheckingTheStatusOfAWarrantyClaimCheckingTheStatusOfAWarrantyClaim;
+      'api::contact-us.contact-us': ApiContactUsContactUs;
+      'api::faq.faq': ApiFaqFaq;
       'api::home.home': ApiHomeHome;
+      'api::how-to-submit-a-warranty-claim.how-to-submit-a-warranty-claim': ApiHowToSubmitAWarrantyClaimHowToSubmitAWarrantyClaim;
+      'api::menu.menu': ApiMenuMenu;
+      'api::music-with-a-mission.music-with-a-mission': ApiMusicWithAMissionMusicWithAMission;
       'api::order.order': ApiOrderOrder;
-      'api::payment-detail.payment-detail': ApiPaymentDetailPaymentDetail;
+      'api::ordering-information.ordering-information': ApiOrderingInformationOrderingInformation;
       'api::press-releases.press-releases': ApiPressReleasesPressReleases;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::product.product': ApiProductProduct;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
+      'api::product-help.product-help': ApiProductHelpProductHelp;
+      'api::product-help-category.product-help-category': ApiProductHelpCategoryProductHelpCategory;
+      'api::refunds-return.refunds-return': ApiRefundsReturnRefundsReturn;
+      'api::safty.safty': ApiSaftySafty;
+      'api::submit-a-claim.submit-a-claim': ApiSubmitAClaimSubmitAClaim;
       'api::terms-of-use.terms-of-use': ApiTermsOfUseTermsOfUse;
+      'api::warranty.warranty': ApiWarrantyWarranty;
       'api::warranty-policy.warranty-policy': ApiWarrantyPolicyWarrantyPolicy;
     }
   }

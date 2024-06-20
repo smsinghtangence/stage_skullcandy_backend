@@ -1,7 +1,8 @@
 {
   "collectionName": "components_billing_billings",
   "info": {
-    "displayName": "Billing"
+    "displayName": "Billing",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -31,6 +32,9 @@
     },
     "phone": {
       "type": "biginteger"
+    },
+    "Email": {
+      "type": "string"
     }
   }
 }

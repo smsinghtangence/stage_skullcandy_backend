@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_helps",
+  "info": {
+    "singularName": "product-help",
+    "pluralName": "product-helps",
+    "displayName": "Product Help",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Heading"
+    },
+    "product_help_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product-help-category.product-help-category"
+    }
+  }
+}

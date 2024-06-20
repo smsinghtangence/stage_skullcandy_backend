@@ -25,7 +25,7 @@ module.exports = {
       //   key_id: "rzp_test_i42zFDaD8R8cRS",
       //   key_secret: "SVbdVgj9StNbjyj33304HS1f",
       // });
-console.log("sam "+JSON.stringify(ctx.request.body.amount))
+// console.log("sam "+JSON.stringify(ctx.request.body.amount))
       const razorpay = new Razorpay({
         key_id: "rzp_test_hTSzc7KeSl5FzN",
         key_secret: "7IJn5mKlJjWdfXnOYz7U4uLk",
@@ -36,11 +36,17 @@ console.log("sam "+JSON.stringify(ctx.request.body.amount))
       const payment_capture = 1;
       const amount = ctx.request.body.amount * 100;
       const currency = "INR";
+      // const options = {
+      //   "amount": amount,
+      //   "currency":currency,
+      //   "receipt": shortid.generate(),
+      //   "payment_capture":payment_capture,
+      // };
       const options = {
-        amount: amount,
-        currency,
-        receipt: shortid.generate(),
-        payment_capture,
+        "amount": amount,
+        "currency":currency,
+        "receipt": ctx.request.body.order_id,
+        "payment_capture":payment_capture,
       };
   
       try {

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_menu_menus",
+  "info": {
+    "displayName": "Menu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Url": {
+      "type": "string"
+    },
+    "Sub_Menu": {
+      "displayName": "Sub Menu",
+      "type": "component",
+      "repeatable": true,
+      "component": "sub-menu.sub-menu"
+    },
+    "Right_Menu_Section": {
+      "displayName": "Right Menu Section",
+      "type": "component",
+      "repeatable": true,
+      "component": "right-menu-section.right-menu-section"
+    }
+  }
+}

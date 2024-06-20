@@ -16,12 +16,13 @@
       "type": "string",
       "required": true,
       "maxLength": 100,
-      "minLength": 10
+      "minLength": 5
     },
     "slug": {
       "type": "uid",
       "required": true,
-      "minLength": 3
+      "minLength": 3,
+      "targetField": "title"
     },
     "Product_Tag_Line_Heading": {
       "type": "string"
@@ -84,13 +85,6 @@
         "audios"
       ]
     },
-    "stock_status": {
-      "type": "enumeration",
-      "enum": [
-        "instock",
-        "outstock"
-      ]
-    },
     "Product_Video_Section": {
       "type": "component",
       "repeatable": false,
@@ -101,6 +95,14 @@
       "type": "component",
       "repeatable": false,
       "component": "filters.filters"
+    },
+    "Product_Tag": {
+      "type": "enumeration",
+      "enum": [
+        "NEW",
+        "BEST SELLER",
+        "ON SALE"
+      ]
     }
   }
 }

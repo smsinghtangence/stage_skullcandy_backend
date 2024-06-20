@@ -45,11 +45,9 @@
         "blog2"
       ]
     },
-    "slug": {
-      "type": "string",
-      "unique": true,
-      "required": true,
-      "minLength": 4
+    "Slug": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }
