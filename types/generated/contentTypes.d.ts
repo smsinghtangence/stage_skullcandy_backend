@@ -756,7 +756,18 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
         minLength: 6;
       }>;
     mobile: Attribute.String;
+    country: Attribute.String;
+    firstname: Attribute.String;
+    lastname: Attribute.String;
+    address1: Attribute.String;
+    address2: Attribute.String;
+    city: Attribute.String;
+    state: Attribute.String;
+    zipcode: Attribute.String;
+    userStatus: Attribute.String;
     otp: Attribute.String;
+    otpExpiresAt: Attribute.Time;
+    token: Attribute.Text;
     provider: Attribute.String;
     password: Attribute.Password &
       Attribute.Private &
@@ -909,6 +920,44 @@ export interface ApiHomeHome extends Schema.SingleType {
     createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMobileotpMobileotp extends Schema.CollectionType {
+  collectionName: 'mobileotps';
+  info: {
+    singularName: 'mobileotp';
+    pluralName: 'mobileotps';
+    displayName: 'mobileotp';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    mobile: Attribute.BigInteger;
+    otp: Attribute.BigInteger &
+      Attribute.SetMinMax<
+        {
+          min: '0';
+          max: '06';
+        },
+        string
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mobileotp.mobileotp',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mobileotp.mobileotp',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1276,6 +1325,7 @@ declare module '@strapi/types' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::blog.blog': ApiBlogBlog;
       'api::home.home': ApiHomeHome;
+      'api::mobileotp.mobileotp': ApiMobileotpMobileotp;
       'api::order.order': ApiOrderOrder;
       'api::payment-detail.payment-detail': ApiPaymentDetailPaymentDetail;
       'api::press-releases.press-releases': ApiPressReleasesPressReleases;

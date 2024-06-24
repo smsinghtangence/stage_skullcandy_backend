@@ -29,9 +29,53 @@
       "type": "string",
       "required": false
     },
+    "country": {
+      "type": "string",
+      "required": false
+    },
+    "firstname": {
+      "type": "string",
+      "required": false
+    },
+    "lastname": {
+      "type": "string",
+      "required": false
+    },
+    "address1": {
+      "type": "string",
+      "required": false
+    },
+    "address2": {
+      "type": "string",
+      "required": false
+    },
+    "city": {
+      "type": "string",
+      "required": false
+    },
+    "state": {
+      "type": "string",
+      "required": false
+    },
+    "zipcode": {
+      "type": "string",
+      "required": false
+    },
+    "userStatus": {
+      "type": "string",
+      "required": false
+    },
     "otp": {
       "type": "string",
       "configurable": false,
+      "required": false
+    },
+    "otpExpiresAt": {
+      "type": "time",
+      "required": false
+    },
+    "token": {
+      "type": "text",
       "required": false
     },
     "provider": {

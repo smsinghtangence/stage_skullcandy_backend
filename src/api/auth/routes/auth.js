@@ -33,5 +33,14 @@ module.exports = {
         middlewares: [],
       },
     },
+    {
+      method: 'POST',
+      path: '/resend-otp',
+      handler: 'auth.resendOtp',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
   ],
 };
