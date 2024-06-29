@@ -61,7 +61,7 @@
       "type": "string",
       "required": false
     },
-    "userStatus": {
+    "user_status": {
       "type": "string",
       "required": false
     },
@@ -115,13 +115,25 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.role",
-      "inversedBy": "users",
-      "configurable": false
+      "inversedBy": "users"
     },
     "Address": {
       "type": "component",
       "repeatable": true,
       "component": "billing.billing"
+    },
+    "Company_Name": {
+      "type": "string",
+      "required": false
+    },
+    "GSTIN": {
+      "type": "string",
+      "required": false
+    },
+    "Cart": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cart-item.cart-item"
     }
   }
-}
+} 

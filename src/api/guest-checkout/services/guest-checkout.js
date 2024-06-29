@@ -1,20 +1,21 @@
-'use strict';
-
-const jwt = require('jsonwebtoken');
-const axios = require("axios");
+"use strict";
 
 /**
- * `up_users` service
+ * guest-checkout service
  */
 
-module.exports = {
+const jwt = require("jsonwebtoken");
+const axios = require("axios");
+const { networkInterfaces } = require("os");
+
+module.exports = () => ({
   generateJwtToken(user) {
     return new Promise((resolve, reject) => {
       jwt.sign(
         { id: user.id, email: user.email },
-        strapi.config.get('plugin.users-permissions.jwtSecret'),
+        strapi.config.get("plugin.users-permissions.jwtSecret"),
         {
-          expiresIn: '7d', // Token expiration time
+          expiresIn: "7d", // Token expiration time
         },
         (err, token) => {
           if (err) {
@@ -44,7 +45,9 @@ module.exports = {
         message: message,
       };
 
-      const response = await axios.get("https://api.textlocal.in/send/",{params});
+      const response = await axios.get("https://api.textlocal.in/send/", {
+        params,
+      });
 
       console.log("response", response.data);
       console.log("OTP Mobile sent successfully");
@@ -54,7 +57,16 @@ module.exports = {
         error.response ? error.response.data : error.message
       );
     }
-  }
+  },
 
-};
+  findIpAddress: () => {
+    const results = Object.values(networkInterfaces())
+      .flat()
+      .filter((net) => (net.family === "IPv4") && !net.internal)
+      .map((net) => net.address);
 
+      console.log("results",results);
+
+    return results;
+  },
+});

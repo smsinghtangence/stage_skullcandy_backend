@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 /**
- * razorpay service
+ * customer-log service
  */
 
 module.exports = () => ({});

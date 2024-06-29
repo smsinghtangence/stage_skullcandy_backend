@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customer_logs",
+  "info": {
+    "singularName": "customer-log",
+    "pluralName": "customer-logs",
+    "displayName": "customer-log"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "comment": ""
+  },
+  "attributes": {
+    "ip": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "user_status": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    }
+  }
+}

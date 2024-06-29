@@ -1,5 +1,5 @@
 // @ts-nocheck
-'use strict';
+"use strict";
 
 /**
  * A set of functions called "actions" for `up_users`
@@ -8,42 +8,143 @@
 module.exports = {
   async create(ctx) {
     try {
-      const { email, mobile, country, firstname, lastname, address1, address2, city, state, zipcode, userStatus } = ctx.request.body;
+      const {
+        email,
+        mobile,
+        country,
+        firstname,
+        lastname,
+        address1,
+        address2,
+        city,
+        state,
+        zipcode,
+        userStatus,
+        username
+      } = ctx.request.body;
 
-      const user = await strapi.query('plugin::users-permissions.user').findOne({ where: { mobile, email } });
+      const existingUser = await strapi
+        .query("plugin::users-permissions.user")
+        .findOne({
+          where: {
+            $or: [{ mobile }, { email }],
+          },
+        });
 
-      if (user) {
-        return ctx.notFound('User Already Exist found');
+      if (existingUser) {
+        return ctx.notFound("User already exists");
       }
 
-      const newUser = await strapi.query("plugin::users-permissions.user").create({
-        data: {
-          email,
-          mobile,
-          country,
-          firstname,
-          lastname,
-          address1,
-          address2,
-          city,
-          state,
-          zipcode,
-          userStatus: "1",
-        },
-      });
-
-      const token = await strapi.services['api::checkout.checkout'].generateJwtToken(newUser);
+      const data = await strapi
+        .query("plugin::users-permissions.user")
+        .create({
+          data: {
+            username,
+            email,
+            mobile,
+            country,
+            firstname,
+            lastname,
+            address1,
+            address2,
+            city,
+            state,
+            zipcode,
+            userStatus: "1",
+          },
+        });
 
       ctx.send({
-        user: newUser,
-        jwt: token,
+        status: 200,
+        message: "Guest Checkout Successfully",
+        data
       });
     } catch (err) {
       ctx.throw(500, err);
     }
   },
-};
 
+  async verifyOtp(ctx) {
+    const { mobile, otp } = ctx.request.body;
+
+    if (!mobile || !otp) {
+      return ctx.badRequest("Mobile and OTP are required");
+    }
+
+    try {
+      const user = await strapi
+        .query("plugin::users-permissions.user")
+        .findOne({ where: { mobile } });
+
+      if (!user) {
+        return ctx.notFound("User not found");
+      }
+
+      if (user.otp !== otp) {
+        return ctx.badRequest("Invalid OTP");
+      }
+
+      if (new Date() > new Date(user.otpExpiresAt)) {
+        await strapi.query("plugin::users-permissions.user").update({
+          where: { id: user.id },
+          data: { otp: null, otpExpiresAt: null },
+        });
+        return ctx.badRequest("OTP expired");
+      }
+
+      const token = await strapi
+        .service("api::checkout.checkout")
+        .generateJwtToken(user);
+
+      const data = await strapi.query("plugin::users-permissions.user").update({
+        where: { id: user.id },
+        data: { otp: null, otpExpiresAt: null, token, confirmed: true },
+      });
+
+      ctx.send({
+        message: "OTP verified successfully",
+        jwt: token,
+        user: data,
+      });
+    } catch (error) {
+      console.error("Error verifying OTP:", error.message);
+      ctx.badRequest("Unable to verify OTP");
+    }
+  },
+
+  async resendOtp(ctx) {
+    const { mobile } = ctx.request.body;
+
+    if (!mobile) {
+      return ctx.badRequest("Mobile is required");
+    }
+
+    try {
+      const otp = Math.floor(1000 + Math.random() * 9000).toString();
+      const otpExpiresAt = new Date(Date.now() + 30 * 1000); // OTP expires in 30 seconds
+
+      const user = await strapi
+        .query("plugin::users-permissions.user")
+        .findOne({ where: { mobile } });
+
+      if (!user) {
+        return ctx.notFound("User not found");
+      }
+
+      await strapi.query("plugin::users-permissions.user").update({
+        where: { id: user.id },
+        data: { otp, otpExpiresAt },
+      });
+
+      await strapi.service("api::checkout.checkout").sendOtpMobile(mobile, otp);
+
+      ctx.send({ message: "OTP resent successfully" });
+    } catch (error) {
+      console.error("Error resending OTP:", error.message);
+      ctx.badRequest("Unable to resend OTP");
+    }
+  },
+};
 
 // async find(ctx) {
 //   try {

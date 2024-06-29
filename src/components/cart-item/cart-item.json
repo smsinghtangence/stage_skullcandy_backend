@@ -1,0 +1,50 @@
+{
+    "collectionName": "components_cart_items",
+    "info": {
+      "name": "Cart Item",
+      "icon": "shopping-cart"
+    },
+    "attributes": {
+      "product_id": {
+        "type": "integer",
+        "required": false
+      },
+      "name": {
+        "type": "string",
+        "required": false
+      },
+      "quantity": {
+        "type": "integer",
+        "required": false
+      },
+      "SKU": {
+        "type": "string",
+        "required": false
+      },
+      "Variations_Color_Name": {
+        "type": "string",
+        "required": false
+      },
+      "Variations_Price": {
+        "type": "string",
+        "required": false
+      },
+      "Sales_price": {
+        "type": "string",
+        "required": false
+      },
+      "Variant_Image_url": {
+        "type": "string",
+        "required": false
+      },
+      "Variant_Image": {
+        "type": "media",
+        "required": false
+      },
+      "slug": {
+        "type": "string",
+        "required": false
+      }
+    }
+  }
+  

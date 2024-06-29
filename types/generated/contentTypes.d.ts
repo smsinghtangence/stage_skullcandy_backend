@@ -764,7 +764,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     city: Attribute.String;
     state: Attribute.String;
     zipcode: Attribute.String;
-    userStatus: Attribute.String;
+    user_status: Attribute.String;
     otp: Attribute.String;
     otpExpiresAt: Attribute.Time;
     token: Attribute.Text;
@@ -784,6 +784,9 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.role'
     >;
     Address: Attribute.Component<'billing.billing', true>;
+    Company_Name: Attribute.String;
+    GSTIN: Attribute.String;
+    Cart: Attribute.Component<'cart-item.cart-item', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -889,6 +892,39 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCustomerLogCustomerLog extends Schema.CollectionType {
+  collectionName: 'customer_logs';
+  info: {
+    singularName: 'customer-log';
+    pluralName: 'customer-logs';
+    displayName: 'customer-log';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  attributes: {
+    ip: Attribute.String;
+    mobile: Attribute.String;
+    user_status: Attribute.String;
+    username: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::customer-log.customer-log',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::customer-log.customer-log',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1324,6 +1360,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::blog.blog': ApiBlogBlog;
+      'api::customer-log.customer-log': ApiCustomerLogCustomerLog;
       'api::home.home': ApiHomeHome;
       'api::mobileotp.mobileotp': ApiMobileotpMobileotp;
       'api::order.order': ApiOrderOrder;

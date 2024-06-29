@@ -1,11 +1,28 @@
-'use strict';
+"use strict";
 
 module.exports = {
   routes: [
     {
+      method: "POST",
+      path: "/guest/checkouts",
+      handler: "checkout.create",
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
+    {
+      method: "POST",
+      path: "/guest/verify-otp",
+      handler: "checkout.verifyOtp",
+      config: {
+        policies: [],
+      },
+    },
+    {
       method: 'POST',
-      path: '/checkouts',
-      handler: 'checkout.create',
+      path: '/guest/resend-otp',
+      handler: 'checkout.resendOtp',
       config: {
         policies: [],
         middlewares: [],

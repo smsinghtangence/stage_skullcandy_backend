@@ -59,6 +59,26 @@ export interface BillingShipping extends Schema.Component {
   attributes: {};
 }
 
+export interface CartItemCartItem extends Schema.Component {
+  collectionName: 'components_cart_items';
+  info: {
+    name: 'Cart Item';
+    icon: 'shopping-cart';
+  };
+  attributes: {
+    product_id: Attribute.Integer;
+    name: Attribute.String;
+    quantity: Attribute.Integer;
+    SKU: Attribute.String;
+    Variations_Color_Name: Attribute.String;
+    Variations_Price: Attribute.String;
+    Sales_price: Attribute.String;
+    Variant_Image_url: Attribute.String;
+    Variant_Image: Attribute.Media;
+    slug: Attribute.String;
+  };
+}
+
 export interface CollectionsHomeCollection extends Schema.Component {
   collectionName: 'components_collections_home_collections';
   info: {
@@ -559,6 +579,7 @@ declare module '@strapi/types' {
       'battery-life.battery-life': BatteryLifeBatteryLife;
       'billing.billing': BillingBilling;
       'billing.shipping': BillingShipping;
+      'cart-item.cart-item': CartItemCartItem;
       'collections.home-collection': CollectionsHomeCollection;
       'color-box.color-box': ColorBoxColorBox;
       'content-section.content-section': ContentSectionContentSection;
