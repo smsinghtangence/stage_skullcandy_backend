@@ -89,5 +89,32 @@ module.exports = {
   },
   generateJwtToken: (user) => {
     return jwt.sign({ id: user.id, email: user.email }, SECRET_KEY, { expiresIn: '3d' });
-  }
+  },
+  guestNewRegistrationEmail: async (email,full_name,password) => {
+    try {
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.USER_EMAIL,
+          pass: process.env.USER_PASS,
+        },
+      });
+
+      const mailOptions = {
+        from: process.env.USER_EMAIL,
+        to: email,
+        subject: `Welcome ${full_name}`,
+        text: `Your new password is: ${password}`,
+        html: `<p>Welcome ${full_name},</p><p>Your new password is: <strong>${password}</strong></p>`,
+
+      };
+
+      await transporter.sendMail(mailOptions);
+      console.log('Guest User mail sent successfully');
+    } catch (error) {
+      console.error('Error sending Guest User mail :', error);
+    }
+  },
+
+
 };

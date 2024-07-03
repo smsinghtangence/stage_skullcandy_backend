@@ -294,9 +294,9 @@ async changePassword(ctx) {
 
 async register(ctx) {
   const {
-    username,
+     
     email,
-    password,
+    
     first_name,
     last_name,
     address_1,
@@ -311,9 +311,34 @@ async register(ctx) {
     Cart,
   } = ctx.request.body;
 
+ const username = mobile
+
   if (!mobile || !email) {
     return ctx.badRequest("Mobile and email are required");
   }
+
+//////////////////////
+const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+const newPassword ="Skull@"+otp
+ 
+ 
+  // // Send the email with the new password
+  const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+    // await strapi.query('plugin::users-permissions.user').update({
+    //   where: { email },
+    //   data: { resetPasswordToken: null, password: hashedPassword },
+    // });
+
+    const full_name = first_name + " " + last_name
+
+  await strapi.service('api::auth.auth').guestNewRegistrationEmail(email,full_name, newPassword);
+const password = hashedPassword
+///////////////
+
+
+
 
   try {
     const existingUser = await strapi
