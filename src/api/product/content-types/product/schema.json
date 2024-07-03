@@ -20,8 +20,7 @@
     },
     "slug": {
       "type": "uid",
-      "required": true,
-      "minLength": 3,
+      "required": false,
       "targetField": "title"
     },
     "Product_Tag_Line_Heading": {
@@ -103,6 +102,19 @@
         "BEST SELLER",
         "ON SALE"
       ]
+    },
+    "Product_Help": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "review": {
+      "displayName": "Review",
+      "type": "component",
+      "repeatable": true,
+      "component": "review.review"
     }
   }
 }

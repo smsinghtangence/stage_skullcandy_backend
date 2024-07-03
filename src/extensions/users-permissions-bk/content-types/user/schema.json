@@ -25,17 +25,13 @@
       "configurable": false,
       "required": true
     },
+    "mobile": {
+      "type": "string",
+      "required": false
+    },
     "otp": {
       "type": "string",
       "configurable": false,
-      "required": false
-    },
-    "otpExpiresAt": {
-      "type": "time",
-      "required": false
-    },
-    "token": {
-      "type": "text",
       "required": false
     },
     "provider": {
@@ -78,10 +74,6 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "mobile": {
-      "type": "string",
-      "required": false
-    },
     "Address": {
       "type": "component",
       "repeatable": true,
@@ -97,48 +89,6 @@
     },
     "GSTIN": {
       "type": "string"
-    },
-    "first_name": {
-      "type": "string"
-    },
-    "last_name": {
-      "type": "string"
-    },
-    "country": {
-      "type": "string",
-      "required": false
-    },
-    "firstname": {
-      "type": "string",
-      "required": false
-    },
-    "lastname": {
-      "type": "string",
-      "required": false
-    },
-    "address1": {
-      "type": "string",
-      "required": false
-    },
-    "address2": {
-      "type": "string",
-      "required": false
-    },
-    "city": {
-      "type": "string",
-      "required": false
-    },
-    "state": {
-      "type": "string",
-      "required": false
-    },
-    "zipcode": {
-      "type": "string",
-      "required": false
-    },
-    "userStatus": {
-      "type": "string",
-      "required": false
     }
   }
 }

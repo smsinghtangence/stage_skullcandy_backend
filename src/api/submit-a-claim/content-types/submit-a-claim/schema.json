@@ -4,7 +4,8 @@
   "info": {
     "singularName": "submit-a-claim",
     "pluralName": "submit-a-claims",
-    "displayName": "Submit a Claim"
+    "displayName": "Submit a Claim",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -29,7 +30,7 @@
     "Your_Name": {
       "type": "string"
     },
-    "Email_Address": {
+    "email": {
       "type": "string"
     },
     "Phone_Number": {

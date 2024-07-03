@@ -519,6 +519,18 @@ export interface ProductVideoSectionProductVideoSection
   };
 }
 
+export interface ReviewReview extends Schema.Component {
+  collectionName: 'components_review_reviews';
+  info: {
+    displayName: 'Review';
+  };
+  attributes: {
+    Name: Attribute.String;
+    Image: Attribute.Media;
+    Content: Attribute.Text;
+  };
+}
+
 export interface RightMenuSectionRightMenuSection extends Schema.Component {
   collectionName: 'components_right_menu_section_right_menu_sections';
   info: {
@@ -663,6 +675,7 @@ declare module '@strapi/types' {
       'product-type.product-type': ProductTypeProductType;
       'product-usp.product-usp': ProductUspProductUsp;
       'product-video-section.product-video-section': ProductVideoSectionProductVideoSection;
+      'review.review': ReviewReview;
       'right-menu-section.right-menu-section': RightMenuSectionRightMenuSection;
       'sub-menu.sub-menu': SubMenuSubMenu;
       'variation-sliders.variation-sliders': VariationSlidersVariationSliders;

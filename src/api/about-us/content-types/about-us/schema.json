@@ -94,24 +94,29 @@
       "customField": "plugin::ckeditor5.CKEditor"
     },
     "Mobile_Top_Banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Our_Culture_Mobile_Banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "token": {
+      "type": "text"
     }
   }
 }

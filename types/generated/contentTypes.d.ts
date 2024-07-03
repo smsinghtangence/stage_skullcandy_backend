@@ -755,6 +755,19 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+      mobile: Attribute.String;
+      country: Attribute.String;
+      firstname: Attribute.String;
+      lastname: Attribute.String;
+      address1: Attribute.String;
+      address2: Attribute.String;
+      city: Attribute.String;
+      state: Attribute.String;
+      zipcode: Attribute.String;
+      userStatus: Attribute.String;
+      otp: Attribute.String;
+      otpExpiresAt: Attribute.Time;
+      token: Attribute.Text;
     provider: Attribute.String;
     password: Attribute.Password &
       Attribute.Private &
@@ -770,10 +783,13 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    
     Address: Attribute.Component<'billing.billing', true>;
     Cart: Attribute.Component<'line-items.line-items', true>;
     Company_Name: Attribute.String;
     GSTIN: Attribute.String;
+    first_name: Attribute.String;
+    last_name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -828,6 +844,7 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
       >;
     Mobile_Top_Banner: Attribute.Media;
     Our_Culture_Mobile_Banner: Attribute.Media;
+    token: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -876,6 +893,51 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBulkOrderBulkOrder extends Schema.CollectionType {
+  collectionName: 'bulk_orders';
+  info: {
+    singularName: 'bulk-order';
+    pluralName: 'bulk-orders';
+    displayName: 'Bulk Order';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    fullName: Attribute.String;
+    company: Attribute.String;
+    email: Attribute.String;
+    state: Attribute.String;
+    product: Attribute.String;
+    quantity: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 20;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
+    Special_Request: Attribute.Text;
+    phone: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::bulk-order.bulk-order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::bulk-order.bulk-order',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1137,6 +1199,81 @@ export interface ApiMusicWithAMissionMusicWithAMission
   };
 }
 
+export interface ApiNotifyMeWhenAvailableNotifyMeWhenAvailable
+  extends Schema.CollectionType {
+  collectionName: 'notify_me_when_availables';
+  info: {
+    singularName: 'notify-me-when-available';
+    pluralName: 'notify-me-when-availables';
+    displayName: 'Notify Me When Available';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    email: Attribute.String;
+    product_id: Attribute.String;
+    sku: Attribute.String;
+    product_name: Attribute.String;
+    color: Attribute.String;
+    slug: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::notify-me-when-available.notify-me-when-available',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::notify-me-when-available.notify-me-when-available',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMobileotpMobileotp extends Schema.CollectionType {
+  collectionName: 'mobileotps';
+  info: {
+    singularName: 'mobileotp';
+    pluralName: 'mobileotps';
+    displayName: 'mobileotp';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    mobile: Attribute.BigInteger;
+    otp: Attribute.BigInteger &
+      Attribute.SetMinMax<
+        {
+          min: '0';
+          max: '06';
+        },
+        string
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mobileotp.mobileotp',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mobileotp.mobileotp',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOrderOrder extends Schema.CollectionType {
   collectionName: 'orders';
   info: {
@@ -1156,7 +1293,6 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     set_paid: Attribute.String;
     billing: Attribute.Component<'billing.billing'>;
     shipping: Attribute.Component<'billing.billing'>;
-    order_key: Attribute.String;
     shipping_total: Attribute.String;
     shipping_tax: Attribute.String;
     cart_tax: Attribute.String;
@@ -1228,6 +1364,37 @@ export interface ApiOrderingInformationOrderingInformation
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPagePage extends Schema.CollectionType {
+  collectionName: 'pages';
+  info: {
+    singularName: 'page';
+    pluralName: 'pages';
+    displayName: 'Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    slug: Attribute.UID<'api::page.page', 'Title'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1313,11 +1480,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
         minLength: 5;
         maxLength: 100;
       }>;
-    slug: Attribute.UID<'api::product.product', 'title'> &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 3;
-      }>;
+    slug: Attribute.UID<'api::product.product', 'title'>;
     Product_Tag_Line_Heading: Attribute.String;
     Feature_List: Attribute.Component<'feature-list.feature-list', true>;
     Variation_Sliders: Attribute.Component<
@@ -1349,6 +1512,14 @@ export interface ApiProductProduct extends Schema.CollectionType {
     Product_Video_Section: Attribute.Component<'product-video-section.product-video-section'>;
     Filters: Attribute.Component<'filters.filters'>;
     Product_Tag: Attribute.Enumeration<['NEW', 'BEST SELLER', 'ON SALE']>;
+    Product_Help: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    review: Attribute.Component<'review.review', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1569,6 +1740,7 @@ export interface ApiSubmitAClaimSubmitAClaim extends Schema.CollectionType {
     singularName: 'submit-a-claim';
     pluralName: 'submit-a-claims';
     displayName: 'Submit a Claim';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1580,7 +1752,7 @@ export interface ApiSubmitAClaimSubmitAClaim extends Schema.CollectionType {
     Bill_Number: Attribute.String;
     Describe_Your_Product_Issues: Attribute.Text;
     Your_Name: Attribute.String;
-    Email_Address: Attribute.String;
+    email: Attribute.String;
     Phone_Number: Attribute.String;
     State: Attribute.String;
     Address: Attribute.Text;
@@ -1734,15 +1906,19 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::blog.blog': ApiBlogBlog;
+      'api::bulk-order.bulk-order': ApiBulkOrderBulkOrder;
       'api::checking-the-status-of-a-warranty-claim.checking-the-status-of-a-warranty-claim': ApiCheckingTheStatusOfAWarrantyClaimCheckingTheStatusOfAWarrantyClaim;
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::faq.faq': ApiFaqFaq;
       'api::home.home': ApiHomeHome;
+      'api::mobileotp.mobileotp': ApiMobileotpMobileotp;
       'api::how-to-submit-a-warranty-claim.how-to-submit-a-warranty-claim': ApiHowToSubmitAWarrantyClaimHowToSubmitAWarrantyClaim;
       'api::menu.menu': ApiMenuMenu;
       'api::music-with-a-mission.music-with-a-mission': ApiMusicWithAMissionMusicWithAMission;
+      'api::notify-me-when-available.notify-me-when-available': ApiNotifyMeWhenAvailableNotifyMeWhenAvailable;
       'api::order.order': ApiOrderOrder;
       'api::ordering-information.ordering-information': ApiOrderingInformationOrderingInformation;
+      'api::page.page': ApiPagePage;
       'api::press-releases.press-releases': ApiPressReleasesPressReleases;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::product.product': ApiProductProduct;

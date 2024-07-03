@@ -39,9 +39,6 @@
       "repeatable": false,
       "component": "billing.billing"
     },
-    "order_key": {
-      "type": "string"
-    },
     "shipping_total": {
       "type": "string"
     },
